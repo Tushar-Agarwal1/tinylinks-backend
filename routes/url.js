@@ -10,9 +10,9 @@ router.post("/api/short", async (req, res) => {
     const short = createShortUrl(counter)
     counter++;
     await Url.create({ shortUrl: short, longUrl: req.body.input });
+    const link = 'https://tiny-links-aw1j.onrender.com/api/' + short;
 
-
-    res.send(short);
+    res.send(link);
 })
 router.get("/api/:short", async (req, res) => {
     const data = await Url.findOne({ shortUrl: req.params.short });

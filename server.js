@@ -5,7 +5,7 @@ const app = express();
 const urlRoutes = require('./routes/url');
 const cors = require('cors');
 
-// dbConnection();
+dbConnection();
 
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())

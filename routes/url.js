@@ -9,7 +9,7 @@ router.post("/api/short", async (req, res) => {
     console.log(req.body);
     const short = createShortUrl(counter)
     counter++;
-    //await Url.create({ shortUrl: short, longUrl: req.body.input });
+    await Url.create({ shortUrl: short, longUrl: req.body.input });
 
 
     res.send(short);

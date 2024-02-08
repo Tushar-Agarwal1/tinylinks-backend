@@ -31,4 +31,15 @@ const createShortUrl = (c) => {
     return hash;
 
 };
-module.exports = createShortUrl;    
+
+
+const short = async (req, res) => {
+    console.log(req.body);
+    const short = createShortUrl(counter)
+    counter++;
+    await Url.create({ shortUrl: short, longUrl: req.body.input });
+    const link = 'https://microurl.me/' + short;
+
+    res.send(link);
+}
+module.exports = { createShortUrl, short };    
